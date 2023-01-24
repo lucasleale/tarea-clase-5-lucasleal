@@ -22,4 +22,17 @@ $botonCalcular.onclick = function()
 //cuando el usuario haga click en el botón "calcular", mostrar el salario mensual
 // en una caja de texto deshabilitada. --> <input type="text" disabled id="salario-mensual"/>
 
+const botonCalcular = document.querySelector("#calcular-salario-mensual");
 
+botonCalcular.onclick = function () {
+  const salarioAnual = Number(document.querySelector("#salario-anual").value);
+  const salarioMensual = calcularSalarioMensual(salarioAnual);
+
+  document.querySelector("#salario-mensual").value = salarioMensual.toFixed(2);
+
+  return false;
+}
+
+function calcularSalarioMensual(salarioAnual) {
+  return salarioAnual / 12;
+}
